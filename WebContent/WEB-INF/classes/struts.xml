@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.devMode" value="true" />
+<constant name="struts.ui.theme" value="simple" />
+   <package name="bookManage" extends="struts-default">
+   
+      <action name="queryAuthor" class="bookManage.QueryAuthor" method="execute">
+	      <result name="success">/booklist.jsp</result>
+	      <result name="fail">/queryAuthorError.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="addAuthor" class="bookManage.AddAuthor" method="execute">
+	      <result name="success">/addBook.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="addBook" class="bookManage.AddBook" method="execute">
+	      <result name="success">/index.jsp</result>
+	      <result name="addBookAuthor">/addBookAuthor.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="addBookAuthor" class="bookManage.AddAuthor" method="execute">
+	      <result name="success">/index.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="allBook" class="bookManage.AllBook" method="execute">
+	      <result name="success">/booklist.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="queryBook" class="bookManage.QueryBook" method="execute">
+	      <result name="success">/detail.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="updateBook1" class="bookManage.UpdateBook1" method="execute">
+	      <result name="success">/updateBook.jsp</result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="updateBook2" class="bookManage.UpdateBook2" method="execute">
+      	  <result name="success" type="redirect"> allBook </result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+      <action name="deleteBook" class="bookManage.DeleteBook" method="execute">
+	      <result name="success" type="redirect"> allBook </result>
+	      <result name="error">/error.jsp</result>
+	      <allowed-methods>execute</allowed-methods>
+      </action>
+      
+   </package>
+</struts>
